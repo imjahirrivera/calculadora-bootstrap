@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Básica</title>
-
-    <!-- Agregar enlaces a las hojas de estilo CSS de Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -81,15 +79,13 @@
         </div>
     </div>
 
-    <!-- Agregar enlaces a los scripts de Bootstrap (jQuery y Popper.js son requeridos) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        var operacion = ''; // Variable para almacenar la operación actual
+        var operacion = '';
 
-        // Función para agregar números y operadores al campo de resultado
         function agregarNumero(numero) {
             document.getElementById('resultado').value += numero;
         }
@@ -99,7 +95,6 @@
             document.getElementById('resultado').value = '';
         }
 
-        // Función para calcular el resultado
         function calcular() {
             operacion += document.getElementById('resultado').value;
             var resultado = eval(operacion);
@@ -107,7 +102,6 @@
             operacion = '';
         }
 
-        // Función para limpiar el campo de resultado
         function limpiar() {
             document.getElementById('resultado').value = '';
             operacion = '';
