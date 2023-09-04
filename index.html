@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+
+    <!-- Agregar enlaces a las hojas de estilo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Calculadora Básica</h3>
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="resultado" class="form-control mb-3" readonly>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="limpiar()">C</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(7)">7</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(8)">8</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(9)">9</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(4)">4</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(5)">5</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(6)">6</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarOperador('+')">+</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(1)">1</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(2)">2</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(3)">3</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarOperador('-')">-</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarNumero(0)">0</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarOperador('*')">*</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="agregarOperador('/')">/</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" onclick="calcular()">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agregar enlaces a los scripts de Bootstrap (jQuery y Popper.js son requeridos) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        var operacion = ''; // Variable para almacenar la operación actual
+
+        // Función para agregar números y operadores al campo de resultado
+        function agregarNumero(numero) {
+            document.getElementById('resultado').value += numero;
+        }
+
+        function agregarOperador(op) {
+            operacion += document.getElementById('resultado').value + op;
+            document.getElementById('resultado').value = '';
+        }
+
+        // Función para calcular el resultado
+        function calcular() {
+            operacion += document.getElementById('resultado').value;
+            var resultado = eval(operacion);
+            document.getElementById('resultado').value = resultado;
+            operacion = '';
+        }
+
+        // Función para limpiar el campo de resultado
+        function limpiar() {
+            document.getElementById('resultado').value = '';
+            operacion = '';
+        }
+    </script>
+</body>
+</html>
